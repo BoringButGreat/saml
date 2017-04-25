@@ -1,0 +1,5 @@
+%{"cowboy": {:git, "git://github.com/extend/cowboy", "d08c2ab39d38c181abda279d5c2cadfac33a50c1", [branch: "1.0.x"]},
+  "cowlib": {:git, "https://github.com/ninenines/cowlib.git", "d544a494af4dbc810fc9c15eaf5cc050cced1501", [ref: "1.0.0"]},
+  "esaml": {:git, "https://github.com/arekinath/esaml.git", "0fa4b6396d9c9488032f53e6757a3546e89f470b", [ref: "0fa4b6396d9c9488032f53e6757a3546e89f470b"]},
+  "public_key_utils": {:git, "https://github.com/boringbutgreat/public_key_utils.git", "1fb28c1c58c3edf69e5e434af9140a50cb123f4f", []},
+  "ranch": {:git, "https://github.com/ninenines/ranch.git", "adf1822defc2b7cfdc7aca112adabfa1d614043c", [ref: "1.0.0"]}}
