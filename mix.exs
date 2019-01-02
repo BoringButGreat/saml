@@ -2,12 +2,14 @@ defmodule Saml.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :saml,
-     version: "0.1.0",
-     elixir: "~> 1.3",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :saml,
+      version: "0.1.1",
+      elixir: "~> 1.7",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application
@@ -29,7 +31,7 @@ defmodule Saml.Mixfile do
   defp deps do
     [
       {:public_key_utils, "~> 0.1.1", github: "boringbutgreat/public_key_utils"},
-      {:esaml, github: "arekinath/esaml", ref: "0fa4b6396d9c9488032f53e6757a3546e89f470b"}
+      {:esaml, "~> 3.6"}
     ]
   end
 end

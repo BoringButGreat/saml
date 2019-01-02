@@ -1,5 +1,7 @@
-%{"cowboy": {:git, "git://github.com/extend/cowboy", "d08c2ab39d38c181abda279d5c2cadfac33a50c1", [branch: "1.0.x"]},
-  "cowlib": {:git, "https://github.com/ninenines/cowlib.git", "d544a494af4dbc810fc9c15eaf5cc050cced1501", [ref: "1.0.0"]},
-  "esaml": {:git, "https://github.com/arekinath/esaml.git", "0fa4b6396d9c9488032f53e6757a3546e89f470b", [ref: "0fa4b6396d9c9488032f53e6757a3546e89f470b"]},
+%{
+  "cowboy": {:hex, :cowboy, "1.1.2", "61ac29ea970389a88eca5a65601460162d370a70018afe6f949a29dca91f3bb0", [:rebar3], [{:cowlib, "~> 1.0.2", [hex: :cowlib, repo: "hexpm", optional: false]}, {:ranch, "~> 1.3.2", [hex: :ranch, repo: "hexpm", optional: false]}], "hexpm"},
+  "cowlib": {:hex, :cowlib, "1.0.2", "9d769a1d062c9c3ac753096f868ca121e2730b9a377de23dec0f7e08b1df84ee", [:make], [], "hexpm"},
+  "esaml": {:hex, :esaml, "3.6.1", "e37ab7d0cbf55cc82fb86514bdc5794370b85cbe9569857d64a564bca1c55f4c", [:rebar3], [{:cowboy, "1.1.2", [hex: :cowboy, repo: "hexpm", optional: false]}], "hexpm"},
   "public_key_utils": {:git, "https://github.com/boringbutgreat/public_key_utils.git", "1fb28c1c58c3edf69e5e434af9140a50cb123f4f", []},
-  "ranch": {:git, "https://github.com/ninenines/ranch.git", "adf1822defc2b7cfdc7aca112adabfa1d614043c", [ref: "1.0.0"]}}
+  "ranch": {:hex, :ranch, "1.3.2", "e4965a144dc9fbe70e5c077c65e73c57165416a901bd02ea899cfd95aa890986", [:rebar3], [], "hexpm"},
+}
