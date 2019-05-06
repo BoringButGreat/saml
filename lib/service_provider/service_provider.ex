@@ -30,21 +30,20 @@ defmodule SAML.ServiceProvider do
   def validate_assertion(assertion, %SP{} = config, %IDP{} = idp) do
     sp = SP.to_esaml(config, idp)
 
-    case Base.decode64(assertion) do
-      {:ok, rawxml} ->
-        {xml, _} = :xmerl_scan.string(to_charlist(rawxml), namespace_conformant: true)
+    try do
+      rawxml = :base64.decode_to_string(assertion)
+      {xml, _} = :xmerl_scan.string(rawxml, namespace_conformant: true)
 
-        case :esaml_sp.validate_assertion(xml, sp) do
-          {:ok, assertion} ->
-            {:ok, SAML.Assertion.from_esaml(assertion)}
+      case :esaml_sp.validate_assertion(xml, sp) do
+        {:ok, assertion} ->
+          {:ok, SAML.Assertion.from_esaml(assertion)}
 
-          error ->
-            Logger.warn("Invalid SAML Assertion (#{config.entity_id}): #{inspect(error)}")
-            {:error, :invalid_saml_assertion}
-        end
-
-      _ ->
-        {:error, :response_unparsable}
+        error ->
+          Logger.warn("Invalid SAML Assertion (#{config.entity_id}): #{inspect(error)}")
+          {:error, :invalid_saml_assertion}
+      end
+    rescue
+      _ -> {:error, :response_unparsable}
     end
   end
 
